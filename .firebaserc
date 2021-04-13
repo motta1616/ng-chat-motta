@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "sofkachat-motta": {
+      "hosting": {
+        "ng-chat-motta": [
+          "sofkachat-motta"
+        ]
+      }
+    }
+  }
+}
