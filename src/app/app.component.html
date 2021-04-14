@@ -1,5 +1,29 @@
-<ul> <!-- nuestro template-->
-  <li *ngFor = "let item of items | async">
-    <img src="{{ item.photoURL }}">{{ item.text}}
-  </li>
-</ul>
+<!-- nuestro template-->
+<div className="App">
+  <header>
+    <h1>sofka chat</h1>
+    <div *ngIf="user !== null" >
+      <button (click)="signOut()">
+        Sign out [{{user?.email}}] <!--? = es una declaracion de nulo-->
+      </button>
+    </div>
+  </header>
+
+  <section *ngIf="user !== null">   
+    <ul>
+      <li *ngFor="let item of items | async">
+        <img src="{{ item.photoURL }}" alt="avatar">
+        {{ item.displayName }}
+        {{ item.text }}
+      </li>
+    </ul>
+    <input type="text" placeholder="Ingresar algo aqui" [(ngModel)]="formValue" />
+    <button (click)="sendMessage()"[disabled]="!formValue">Send</button> <!--[disabled]: no deja enviar vacios-->
+  </section>
+
+  <section *ngIf="user === null">
+    <button (click)="signIn()">
+      Sign In 
+    </button>
+  </section>
+</div>

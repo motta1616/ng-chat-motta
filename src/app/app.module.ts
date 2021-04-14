@@ -21,6 +21,7 @@ const firebase = {
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AngularFireModule.initializeApp(firebase)
   ],
   providers: [],
